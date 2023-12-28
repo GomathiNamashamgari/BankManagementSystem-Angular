@@ -1,0 +1,26 @@
+<div class="custom-background">
+<h1>Transaction List</h1>
+<table class="table table-dark table-bordered m-2">
+    <thead>
+        <tr>
+            <th>Transaction Id</th>
+            <th>Transaction Amount</th>
+            <th>Transcation Date</th>
+            <th>Transaction Type</th>
+            <th>Account Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let transaction of transactions">
+            <td>{{transaction.transactionId}}</td>
+            <td>{{transaction.transactionAmount}}</td>
+            <td>{{transaction.transactionDate}}</td>
+            <td>{{transaction.transactionType}}</td>
+            <td>{{transaction.account.accountNumber}}</td>
+            <button class="btn btn-warning m-2" (click)="updateTransaction(transaction.transactionId)">Update</button>
+        
+
+        </tr>
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  .header{
+    width: 100%;
+    padding: 20px;
+    background-color: darkgreen;
+  }
+  nav {
+    text-align: right;
+  }
+  nav  ul{
+    list-style: none;
+    float: right;
+  }
+  nav ul li{
+    display: inline;
+  }
+  nav ul li a{
+    text-decoration: none;
+    padding-right: 15px;
+    color: aliceblue;
+    padding: 0 20px;
+  }
+  .InfoSection{
+    background-color: orangered;
+    display: none;
+  }
+  .InfoSection:target{
+    display: block;
+  }
+  .bankinfo{
+    background-color: orangered;
+    margin: auto;
+    padding: 0%;
+  }
+  .bankinfo h1{
+    padding: 15px;
+    margin: 25px;
+    color: black;
+  }
+  .bankinfo h4{
+    padding: 5px;
+  }
+  .images{
+    background-color: orangered;
+    display: flex;
+  }
+  .img{
+    margin-right: 20px;
+    padding: 30px;
+  }.bankinfo{
+    font-size: medium;
+    font-family:'Times New Roman';
+    border-radius: 5px;
+    border-style: groove;
+  }
+  .bankinfo h2{
+    font-weight: bold;
+    padding: 15px;
+  }
+  .bankinfo p{
+    padding: 15px;
+  }
+  .content{
+    background-color: orangered;
+    color: aqua;
+    border-style: groove;
+    display: flex;
+  
+  }
+  .content ul{
+    flex-direction: column;
+    padding: 0px;
+  }
+  .bank,
+  .customers,
+  .accounts,
+  .transactions{
+    width: 30%;
+    padding: 15px;
+    margin: 10px;
+    border: 1px solid black;
+    color: black;
+    background-color: orangered;
+  }
+  .content li{
+    display: inline-block;
+    margin-right: 30px;
+    text-decoration: none;
+    border-style: hidden;
+    border-radius: 5px;
+    border-color: black;
+    background-color: orangered;
+  }
+  .content a{
+    color: black;
+    text-decoration: none;
+  }

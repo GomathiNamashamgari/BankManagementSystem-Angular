@@ -1,0 +1,32 @@
+<div class="custom-background">
+<h1>Create Transaction</h1>
+<div class="row mb-3">
+<div class="container">
+<form (ngSubmit)="onSubmit()">
+        <div class="transaction">
+        <label>Transaction Id : </label>
+        <div class="col-sm-10">
+        <input class="form-control" type="text" name="transactionId" [(ngModel)]="transaction.transactionId" placeholder="Transaction Id" aria-label="default input example"><br>
+        </div>
+        <label>Transaction Amount : </label>
+        <div class="col-sm-10">
+        <input class="form-control" type="text" name="transactionAmount" [(ngModel)]="transaction.transactionAmount" placeholder="Transaction Account" aria-label="default input example"><br>
+        </div>
+        <label>Transcation Date : </label>
+        <div class="col-sm-10">
+        <input class="form-control" type="text" name="transactionDate" [(ngModel)]="transaction.transactionDate" placeholder="Transaction Date" aria-label="default input example"><br>
+        </div>
+        <label>Transaction Type : </label>
+        <div class="col-sm-10">
+        <input class="form-control" type="text" name="transactionType" [(ngModel)]="transaction.transactionType" placeholder="Transaction Type" aria-label="default input example"><br>
+        </div>
+        <label>Account Number : </label>
+        <div class="col-sm-10">
+        <input class="form-control" type="text" name="accountNumber" [(ngModel)]="transaction.account.accountNumber" placeholder="Account Number" aria-label="default input example"><br>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+    </form>
+</div>
+</div>
+</div>

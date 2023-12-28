@@ -1,0 +1,43 @@
+<div class="custom-background">
+<div class="row mb-3">
+<div class="container">
+    <h1>Update Bank</h1>
+    <form (ngSubmit)="onSubmit()">
+        <div class="bank">
+        <label>Manager Id : </label>
+        <div class="col-sm-10">
+        <input class="form-control" type="text" name="managerId" [(ngModel)]="branchmanager.managerId" placeholder="Manager Id" aria-label="default input example"><br>
+        </div>
+        <label>Branch Name : </label>
+        <div class="col-sm-10">
+        <input class="form-control" type="text" name="branchName" [(ngModel)]="branchmanager.branchName" placeholder="Branch Name" aria-label="default input example"><br>
+        </div>
+        <label>Branch City : </label>
+        <div class="col-sm-10">
+        <input class="form-control" type="text" name="branchCity" [(ngModel)]="branchmanager.branchCity" placeholder="Branch City" aria-label="default input example"><br>
+        </div>
+        <label>Branch PinCode : </label>
+        <div class="col-sm-10">
+        <input class="form-control" type="text" name="branchPinCode" [(ngModel)]="branchmanager.branchPinCode" placeholder="Branch PinCode" aria-label="default input example"><br>
+        </div>
+        <label>Branch Id : </label>
+        <div class="col-sm-10">
+        <input class="form-control" type="text" name="branchId" [(ngModel)]="branchmanager.branchId" placeholder="Branch Id" aria-label="default input example"><br> 
+        </div>
+        <label>Manager Name : </label>
+        <div class="col-sm-10">
+        <input class="form-control" type="text" name="managerName" [(ngModel)]="branchmanager.managerName" placeholder="Manager Name" aria-label="default input example"><br>
+        </div>
+        <label>Manager Experience : </label>
+        <div class="col-sm-10">
+        <input class="form-control" type="text" name="managerExp" [(ngModel)]="branchmanager.managerExp" placeholder="Manager Experience" aria-label="default input example"><br>
+        </div>
+        <!-- <label >Customer Id : </label>
+        <input class="form-control" type="text" name="customerId" [(ngModel)]="branchmanager.customerId" placeholder="Customer Id" aria-label="default input example"><br>-->
+        <button type="submit" class="btn btn-success">Submit</button>
+
+    </div>
+    </form>
+</div>
+</div>
+</div>
