@@ -1,38 +1,29 @@
 import { Injectable } from '@angular/core';
-import{ HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable,throwError } from 'rxjs';
+import { catchError, map } from 'rxjs';
 import { Customer } from './customer';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CustomerService
- {
-  private baseUrl1='http://localhost:8080/customer/getallrecords'
-  private baseUrl2='http://localhost:8080/customer/insertdetails'
-  private baseUrl3='http://localhost:8080/customer/updatedetails'
-  private baseUrl4='http://localhost:8080/customer/deleterecords'
-  private baseUrl5='http://localhost:8080/customer/getdetails'
+export class CustomerService 
+{
+  private baseUrl = 'http://localhost:8080/api'; 
   constructor(private httpClient:HttpClient) { }
 
-  getCustDetails():Observable<Customer[]>
-  {
-    return this.httpClient.get<Customer[]>(`${this.baseUrl1}`);
+  getCustomerById(customerId: number): Observable<any> {
+    const url = `${this.baseUrl}/customer/${customerId}`;
+
+    return this.httpClient.get<any>(url).pipe(
+      map(response => response),
+      catchError(this.handleError)
+    );
   }
-  saveCustomer(customer:Customer):Observable<Object>
-  {
-    return this.httpClient.post(`${this.baseUrl2}`,customer);
-  }
-  getCustomerById(id:String):Observable<Customer>
-  {
-    return this.httpClient.get<Customer>(`${this.baseUrl5}/${id}`);
-  }
-  updateCustomer(id:String,customer:Customer):Observable<Object>
-  {
-    return this.httpClient.put(`${this.baseUrl3}/${id}`,customer);
-  }
-  deleteCustomer(id:String):Observable<any>
-  {
-   return this.httpClient.delete(`${this.baseUrl4}/${id}`);
+
+  private handleError(error: any): Observable<never> {
+    console.error('An error occurred:', error);
+    return throwError('Something went wrong. Please try again later.');
   }
 }
+

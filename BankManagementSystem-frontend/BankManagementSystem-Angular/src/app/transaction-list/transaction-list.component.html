@@ -1,0 +1,23 @@
+<div class="background-container">
+<div class="container mt-3">
+  <h2>Transaction List</h2>
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th>Transaction ID</th>
+        <th>Amount</th>
+        <th>Type</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of transactions">
+        <td>{{ transaction.transactionId }}</td>
+        <td>{{ transaction.amount }}</td>
+        <td>{{ transaction.type }}</td>
+        <td>{{ transaction.timestamp | date:'medium' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

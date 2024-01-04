@@ -1,0 +1,23 @@
+<div class="background-container">
+<div class="container mt-4">
+  
+  <br>
+    <h2>Transfer</h2><br>
+    <div *ngIf="showNotification" class="notification">
+      {{ notificationMessage }}
+    </div>
+    
+    <div>
+      <h4>Deposit</h4><br>
+      <input type="text" class="form-control form-control-sm" id="depositAmount" name="depositAmount" [(ngModel)]="depositAmount" placeholder="Enter Amount" autocomplete="off"><br>
+      <button class="btn btn-primary" (click)="deposit()">Deposit</button><br>
+    </div>
+  <br>
+    <div>
+      <h4>Withdraw</h4><br>
+      <input type="text" class="form-control form-control-sm" id="withdrawAmount" name="withdrawAmount" [(ngModel)]="withdrawAmount" placeholder="Enter Amount" autocomplete="off"><br>
+      <button class="btn btn-primary" (click)="withdraw()">Withdraw</button><br>
+    </div>
+ 
+</div>
+  </div>

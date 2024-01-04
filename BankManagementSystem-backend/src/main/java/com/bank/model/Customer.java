@@ -1,9 +1,14 @@
 package com.bank.model;
 
+import java.util.Date;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
 
 @Data
@@ -11,18 +16,20 @@ import lombok.Data;
 public class Customer 
 {
 	@Id
-	private String customerId;
-	private String customerName;
-	private Long customerContact;
-	private String customerAddress;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long customerId;
+	private String name;
+	private Date dateofbirth;
+	private String email;
+	private Long contact;
+	private String address;
+	private String city;
+	private String state;
+	private Integer pincode;
 	
 	
-	
-	
-	@ManyToOne
-	@JoinColumn(name="manager_id")
-	private BranchManager manager;
-	
+	 @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+	 private List<Account> accounts;
 	
 	
 }
