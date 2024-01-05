@@ -1,18 +1,21 @@
-.background-container
-{
-    background-color: #dadada;
-    
 
-    border: 2px solid black;
-  border-radius: 12px;
-  padding: 5px;
-
+.background-container {
+  min-height: 100vh;
+  margin: 0;
+  background-color: lightblue;
 }
+
+.background-container {
+  padding: 20px; /* Adjust padding as needed */
+}
+
 .notification {
-  background-color: #4CAF50;
-  color: white;
-  padding: 15px;
-  text-align: center;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
 }
+
+

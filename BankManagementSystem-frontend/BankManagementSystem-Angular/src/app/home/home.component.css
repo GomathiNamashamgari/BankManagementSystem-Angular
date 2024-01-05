@@ -1,20 +1,22 @@
-.background-container
-{
-    background-color: #dadada;
-    text-align: center;
-    border: 2px solid black;
-  border-radius: 12px;
-  padding: 10px;
-
-}
-
-.text
-{
-    color: red;
-    font-style: italic;
-}
-.p
-{
-    color: black;
-    font-size: large;
-}
+.background-container {
+    background-color: lightyellow; /* Change this to the background color you prefer */
+    padding: 20px; /* Adjust padding as needed */
+    text-align: center; /* Center align text and image */
+  }
+  
+  .text {
+    color: navy; /* Change text color as needed */
+    font-size: 36px; /* Adjust font size as needed */
+  }
+  
+  .p {
+    font-size: 18px; /* Adjust font size as needed */
+    line-height: 1.5; /* Adjust line height for better readability */
+  }
+  
+  img {
+    max-width: 100%; /* Ensure the image doesn't exceed its container width */
+    height: auto; /* Maintain the image's aspect ratio */
+    margin-top: 20px; /* Add margin space below the text for better spacing */
+  }
+  

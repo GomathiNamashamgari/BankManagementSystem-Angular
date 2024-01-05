@@ -25,5 +25,7 @@ export class CustomerService
     console.error('An error occurred:', error);
     return throwError('Something went wrong. Please try again later.');
   }
+
+  
 }
 

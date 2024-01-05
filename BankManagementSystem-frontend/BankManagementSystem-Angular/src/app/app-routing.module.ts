@@ -6,6 +6,7 @@ import { TransferComponent } from './transfer/transfer.component';
 import { HomeComponent } from './home/home.component';
 import { TransactionListComponent } from './transaction-list/transaction-list.component';
 
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'profile', component: ProfileComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'transfer', component: TransferComponent },
   { path: 'transaction-list', component: TransactionListComponent }, 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+
 ];
 
 

@@ -1,4 +1,27 @@
-.background-container
-{
-    background-color: #dadada;
+.background-container {
+  background-color: lightgray; /* Change this to the background color you prefer */
+  padding: 20px; /* Adjust padding as needed */
+}
+
+.container {
+  background-color: white; /* Background color for the inner container */
+  padding: 20px; /* Adjust padding as needed */
+  border-radius: 5px; /* Optional: Add border-radius for a rounded appearance */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
+}
+
+.table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.table-dark th,
+.table-dark td {
+  background-color: #343a40; /* Header and cell background color */
+  color: white; /* Text color for header and cells */
+}
+
+.table-hover tbody tr:hover {
+  background-color: #495057; /* Background color on hover */
+  color: white; /* Text color on hover */
 }
