@@ -8,6 +8,8 @@ export class Account {
     managername:string;
     balance:number;
     type:string;
+    fromAccountId:number;
+    toAccountId:number;
 
     constructor(
         accountId:number,
@@ -18,7 +20,9 @@ export class Account {
         branchpincode:string,
         managername:string,
         balance:number,
-        type:string
+        type:string,
+        fromAccountId:number,
+        toAccountId:number
     ){
         this.accountId=accountId;
         this.bankName=bankName;
@@ -29,6 +33,8 @@ export class Account {
         this.managername=managername;
         this.balance=balance;
         this.type=type;
+        this.fromAccountId=fromAccountId;
+        this.toAccountId=toAccountId;
     }
 
   }

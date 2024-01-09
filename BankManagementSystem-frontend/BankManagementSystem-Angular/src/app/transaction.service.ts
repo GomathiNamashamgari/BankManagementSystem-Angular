@@ -10,12 +10,12 @@ import { Transaction } from './transaction';
 })
 export class TransactionService {
 
-  private baseUrl = 'http://localhost:8080/api'; 
+  private baseUrl = 'http://localhost:8080/api/transaction'; 
 
   constructor(private http: HttpClient) { }
 
   getTransactionsByAccount(accountId: number): Observable<Transaction[]> {
-    const url = `${this.baseUrl}/transaction/account/${accountId}`;
+    const url = `${this.baseUrl}/account/${accountId}`;
     return this.http.get<Transaction[]>(url);
   }
 }

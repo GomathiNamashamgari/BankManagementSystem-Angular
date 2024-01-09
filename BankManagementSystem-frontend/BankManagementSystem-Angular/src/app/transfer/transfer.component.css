@@ -1,21 +1,24 @@
 
-.background-container {
-  min-height: 100vh;
-  margin: 0;
-  background-color: lightblue;
+
+.container {
+  background-color: lightblue; 
+  padding: 20px;
+  border-radius: 5px;
+  
 }
 
-.background-container {
-  padding: 20px; /* Adjust padding as needed */
+h2 {
+  color: #007bff; 
 }
 
-.notification {
-  background-color: #f8d7da;
-  color: #721c24;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #f5c6cb;
-  border-radius: 4px;
+.form-group {
+  margin-bottom: 20px;
 }
 
+.btn {
+  cursor: pointer;
+}
 
+.alert {
+  margin-top: 20px;
+}

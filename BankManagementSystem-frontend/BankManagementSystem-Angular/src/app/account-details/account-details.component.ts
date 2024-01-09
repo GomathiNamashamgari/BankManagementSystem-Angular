@@ -13,9 +13,10 @@ import { Account } from '../account';
 export class AccountDetailsComponent implements OnInit {
 
   accountId!: number;
-  account!: Account;
-  depositAmount!: number;  
-  withdrawAmount!: number; 
+  account!: Account | undefined;
+  depositAmount!: number;
+  withdrawAmount!: number;
+  selectedAccountId: number | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,22 +25,32 @@ export class AccountDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.accountId = Number(this.route.snapshot.paramMap.get('accountId'));
+    this.selectedAccountId = Number(this.route.snapshot.paramMap.get('accountId'));
     this.loadAccountDetails();
   }
 
   loadAccountDetails() {
-    this.accountService.getAccountById(123456789).subscribe(
-      (data) => {
-        this.account = data;
-      },
-      
-    );
-    this.router.navigate(['/account-details', this.accountId]);
+    if (this.selectedAccountId !== undefined) {
+      this.accountService.getAccountById(this.selectedAccountId).subscribe(
+        (data) => {
+          this.account = data;
+        },
+        (error) => {
+          console.error('Error loading account details:', error);
+        }
+      );
+    }
+  }
 
+  onAccountIdChange() {
+    if (this.selectedAccountId !== undefined) {
+      this.loadAccountDetails();
+    }
   }
 
   navigateToTransfer() {
-    this.router.navigate(['/transfer', this.accountId]);
+    if (this.selectedAccountId !== undefined) {
+      this.router.navigate(['/transfer', this.selectedAccountId]);
+    }
   }
 }

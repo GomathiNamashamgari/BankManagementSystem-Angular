@@ -1,70 +1,82 @@
+<!-- src/app/account-details/account-details.component.html -->
+
 <div class="background-container">
-<div class="container mt-3">
-  <h2>Account Details</h2>
-  <form>
+  <div class="container mt-3">
+    <h2>Account Details</h2>
+
+    <!-- Account ID Selection -->
     <div class="row mb-3">
-      <label for="accountId" class="col-sm-2 col-form-label col-form-label-sm">Account Number</label>
+      <label for="selectedAccountId" class="col-sm-2 col-form-label col-form-label-sm">Select Account Number</label>
       <div class="col-sm-5">
-        <input type="text" class="form-control form-control-sm" id="accountId" name="accountId" [(ngModel)]="account.accountId" autocomplete="off" disabled>
+        <input type="number" class="form-control form-control-sm" id="selectedAccountId" name="selectedAccountId" [(ngModel)]="selectedAccountId" autocomplete="off" (change)="onAccountIdChange()">
       </div>
     </div>
 
-    <div class="row mb-3">
-      <label for="bankName" class="col-sm-2 col-form-label col-form-label-sm">Bank Name</label>
-      <div class="col-sm-5">
-        <input type="text" class="form-control form-control-sm" id="bankName" name="bankName" [(ngModel)]="account.bankName" autocomplete="off" disabled>
+    <form *ngIf="account">
+      <!-- Account Details -->
+      <div class="row mb-3">
+        <label for="accountId" class="col-sm-2 col-form-label col-form-label-sm">Account Number</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control form-control-sm" id="accountId" name="accountId" [(ngModel)]="account.accountId" autocomplete="off" disabled>
+        </div>
       </div>
-    </div>
 
-    <div class="row mb-3">
-      <label for="managername" class="col-sm-2 col-form-label col-form-label-sm">Manager Name</label>
-      <div class="col-sm-5">
-        <input type="text" class="form-control form-control-sm" id="managername" name="managername" [(ngModel)]="account.managername" autocomplete="off" disabled>
+      <div class="row mb-3">
+        <label for="bankName" class="col-sm-2 col-form-label col-form-label-sm">Bank Name</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control form-control-sm" id="bankName" name="bankName" [(ngModel)]="account.bankName" autocomplete="off" disabled>
+        </div>
       </div>
-    </div>
 
-    <div class="row mb-3">
-      <label for="branchArea" class="col-sm-2 col-form-label col-form-label-sm">Branch Area</label>
-      <div class="col-sm-5">
-        <input type="text" class="form-control form-control-sm" id="branchArea" name="branchArea" [(ngModel)]="account.branchArea" autocomplete="off" disabled>
+      <div class="row mb-3">
+        <label for="managername" class="col-sm-2 col-form-label col-form-label-sm">Manager Name</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control form-control-sm" id="managername" name="managername" [(ngModel)]="account.managername" autocomplete="off" disabled>
+        </div>
       </div>
-    </div>
-   
-    <div class="row mb-3">
-      <label for="branchCity" class="col-sm-2 col-form-label col-form-label-sm">Branch City</label>
-      <div class="col-sm-5">
-        <input type="text" class="form-control form-control-sm" id="branchCity" name="branchCity" [(ngModel)]="account.branchCity" autocomplete="off" disabled>
-      </div>
-    </div>
 
-    <div class="row mb-3">
-      <label for="branchState" class="col-sm-2 col-form-label col-form-label-sm">Branch State</label>
-      <div class="col-sm-5">
-        <input type="text" class="form-control form-control-sm" id="branchState" name="branchState" [(ngModel)]="account.branchState" autocomplete="off" disabled>
+      <div class="row mb-3">
+        <label for="branchArea" class="col-sm-2 col-form-label col-form-label-sm">Branch Area</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control form-control-sm" id="branchArea" name="branchArea" [(ngModel)]="account.branchArea" autocomplete="off" disabled>
+        </div>
       </div>
-    </div>
 
-    <div class="row mb-3">
-      <label for="branchpincode" class="col-sm-2 col-form-label col-form-label-sm">Branch PinCode</label>
-      <div class="col-sm-5">
-        <input type="text" class="form-control form-control-sm" id="branchpincode" name="branchpincode" [(ngModel)]="account.branchpincode" autocomplete="off" disabled>
+      <div class="row mb-3">
+        <label for="branchCity" class="col-sm-2 col-form-label col-form-label-sm">Branch City</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control form-control-sm" id="branchCity" name="branchCity" [(ngModel)]="account.branchCity" autocomplete="off" disabled>
+        </div>
       </div>
-    </div>
 
-    <div class="row mb-3">
-      <label for="type" class="col-sm-2 col-form-label col-form-label-sm">Account Type</label>
-      <div class="col-sm-5">
-        <input type="text" class="form-control form-control-sm" id="type" name="type" [(ngModel)]="account.type" autocomplete="off" disabled>
+      <div class="row mb-3">
+        <label for="branchState" class="col-sm-2 col-form-label col-form-label-sm">Branch State</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control form-control-sm" id="branchState" name="branchState" [(ngModel)]="account.branchState" autocomplete="off" disabled>
+        </div>
       </div>
-    </div>
 
-    <div class="row mb-3">
-      <label for="balance" class="col-sm-2 col-form-label col-form-label-sm">Balance</label>
-      <div class="col-sm-5">
-        <input type="text" class="form-control form-control-sm" id="balance" name="balance" [(ngModel)]="account.balance" autocomplete="off" disabled>
+      <div class="row mb-3">
+        <label for="branchpincode" class="col-sm-2 col-form-label col-form-label-sm">Branch PinCode</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control form-control-sm" id="branchpincode" name="branchpincode" [(ngModel)]="account.branchpincode" autocomplete="off" disabled>
+        </div>
       </div>
-    </div>
 
-  </form>
-</div>
+      <div class="row mb-3">
+        <label for="type" class="col-sm-2 col-form-label col-form-label-sm">Account Type</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control form-control-sm" id="type" name="type" [(ngModel)]="account.type" autocomplete="off" disabled>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label for="balance" class="col-sm-2 col-form-label col-form-label-sm">Balance</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control form-control-sm" id="balance" name="balance" [(ngModel)]="account.balance" autocomplete="off" disabled>
+        </div>
+      </div>
+
+    </form>
+  </div>
 </div>

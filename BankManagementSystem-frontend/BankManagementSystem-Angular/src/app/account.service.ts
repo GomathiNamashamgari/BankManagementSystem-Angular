@@ -3,6 +3,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { catchError } from 'rxjs';
 import { Account } from './account';
 
 @Injectable({
@@ -10,23 +11,37 @@ import { Account } from './account';
 })
 export class AccountService {
 
-  private baseUrl = 'http://localhost:8080/api'; 
+  private handleError(error: any): void {
+    console.error('An error occurred:', error);
+    // Handle the error as per your application's requirements
+  }
+  private baseUrl = 'http://localhost:8080/api/account'; 
   
 
   constructor(private http: HttpClient) { }
 
   getAccountById(accountId: number): Observable<Account> {
-    const url = `${this.baseUrl}/account/${accountId}`;
+    const url = `${this.baseUrl}/${accountId}`;
     return this.http.get<Account>(url);
   }
 
-  deposit(accountId: number,depositAmount: number): Observable<any> {
-    const url = `${this.baseUrl}/account/${accountId}/deposit/${depositAmount}`;
-    return this.http.post(url, null);
+  deposit(fromAccountId: number, toAccountId: number, depositAmount: number): Observable<any> {
+    const url = `${this.baseUrl}/deposit/${fromAccountId}/${toAccountId}/${depositAmount}`;
+    return this.http.post(url, null).pipe(
+      catchError((error: any) => {
+        this.handleError(error);
+        throw error; // re-throw the error to propagate it further
+      })
+    );
   }
-
-  withdraw(accountId: number, withdrawAmount: number): Observable<any> {
-    const url = `${this.baseUrl}/account/${accountId}/withdraw/${withdrawAmount}`;
-    return this.http.post(url, null);
+  
+  withdraw(fromAccountId: number, toAccountId: number, withdrawAmount: number): Observable<any> {
+    const url = `${this.baseUrl}/withdraw/${fromAccountId}/${toAccountId}/${withdrawAmount}`;
+    return this.http.post(url, null).pipe(
+      catchError((error: any) => {
+        this.handleError(error);
+        throw error; // re-throw the error to propagate it further
+      })
+    );
   }
 }

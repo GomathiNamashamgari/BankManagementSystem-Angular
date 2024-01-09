@@ -10,7 +10,8 @@ import { TransactionService } from '../transaction.service';
 })
 export class TransferComponent implements OnInit {
 
-  accountId!: number;
+  fromAccountId!: number;
+  toAccountId!:number;
   depositAmount!: number;
   withdrawAmount!: number;
 
@@ -24,13 +25,14 @@ export class TransferComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.accountId = Number(this.route.snapshot.paramMap.get('accountId'));
+    this.fromAccountId = Number(this.route.snapshot.paramMap.get('fromaccountId'));
+    this.toAccountId = Number(this.route.snapshot.paramMap.get('toAccountId'));
   }
 
   deposit() {
-    console.log('Deposit payload:', { accountId: this.accountId, depositAmount: this.depositAmount });
+    console.log('Deposit payload:', { fromAccountId: this.fromAccountId,toAccountId: this.toAccountId ,depositAmount: this.depositAmount });
   
-    this.accountService.deposit(123456789, this.depositAmount).subscribe(
+    this.accountService.deposit(this.fromAccountId,this.toAccountId, this.depositAmount).subscribe(
       (response: any) => {
         console.log('Deposit response:', response);
 
@@ -44,9 +46,9 @@ export class TransferComponent implements OnInit {
   }
 
   withdraw() {
-    console.log('Withdraw payload:', { accountId: this.accountId, withdrawAmount: this.withdrawAmount });
+    console.log('Withdraw payload:', { fromAccountId: this.fromAccountId,toAccountId: this.toAccountId, withdrawAmount: this.withdrawAmount });
     
-    this.accountService.withdraw(123456789, this.withdrawAmount).subscribe(
+    this.accountService.withdraw(this.fromAccountId,this.toAccountId, this.withdrawAmount).subscribe(
       () => {
         console.log('Withdrawal successful');
 
@@ -61,11 +63,26 @@ export class TransferComponent implements OnInit {
   
 
   loadTransactions() {
-    this.transactionService.getTransactionsByAccount(123456789).subscribe(
-      (data) => {
-        console.log('Transaction history refreshed:', data);
+    // Use this.fromAccountId and this.toAccountId to get transactions for both accounts
+    this.transactionService.getTransactionsByAccount(this.fromAccountId).subscribe(
+      (fromAccountTransactions) => {
+        console.log('Transactions for fromAccountId:', fromAccountTransactions);
+  
+        // Now fetch transactions for toAccountId
+        this.transactionService.getTransactionsByAccount(this.toAccountId).subscribe(
+          (toAccountTransactions) => {
+            console.log('Transactions for toAccountId:', toAccountTransactions);
+  
+            // You can handle the transactions for both accounts as needed
+          },
+          (error) => {
+            console.error('Error fetching transactions for toAccountId:', error);
+          }
+        );
       },
-      
+      (error) => {
+        console.error('Error fetching transactions for fromAccountId:', error);
+      }
     );
-  }  
+  }
 }

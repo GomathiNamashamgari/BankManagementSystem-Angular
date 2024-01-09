@@ -9,11 +9,11 @@ import { Customer } from './customer';
 })
 export class CustomerService 
 {
-  private baseUrl = 'http://localhost:8080/api'; 
+  private baseUrl = 'http://localhost:8080/api/customer'; 
   constructor(private httpClient:HttpClient) { }
 
   getCustomerById(customerId: number): Observable<any> {
-    const url = `${this.baseUrl}/customer/${customerId}`;
+    const url = `${this.baseUrl}/${customerId}`;
 
     return this.httpClient.get<any>(url).pipe(
       map(response => response),
